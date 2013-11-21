@@ -1,5 +1,109 @@
 <!doctype html>
 <meta charset="utf-8">
+<meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=0.5 maximum-scale=1.0">
 <title>Story maker</title>
-<script src="storyMaker.js"></script>
-<script src="main.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="storyMaker.css">
+
+<body>
+  <div id="left">
+    <header>
+      <h1>Story Maker</h1>
+      <input type="button" id="makeStoryButton" value="Make Story!">
+    </header>
+    <div id="templateDiv">
+      <header>
+        <h2 class="template">Story template</h2>
+        <header>
+          <p>Enter the story keys and click the "Make Story" button to see what happens.</p>
+          <p id="keyIntructions">Define the keys for your story template.</p>
+          <div id="inputs"></div>
+          <span>Random story options:</span>
+          <input type="radio" id="randomOn" name="random" value="on" checked="checked">
+          <span>On</span>
+          <input type="radio" id="randomOff" name="random" value="off">
+          <span>Off</span>
+          <div id="optionInput">
+            <p>
+              <span>Enter a story option number:</span>
+              <input id="optionNumberInput" type="number" min="1" max="99" value="1">
+            </p>
+          </div>
+          <p>
+            <br>Optionally, select a gender to format "he", "she", "him" and "her":
+            <input type="radio" name="gender" value="none" checked="checked">None
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female
+          </p>
+          <textarea id="template"></textarea>
+          <p>
+            <input type="button" id="updateTemplateButton" value="Update Template">
+          </p>
+          <br>
+          <p>You can change the story template in any way you like. If you add new story keys to the template, click the "Update Template" button. Your new keys keys will then be loaded above the template, and you can give them new values. After you've finished giving the keys new values, click the "Make Story" button again to see your new story.</p>
+    </div>
+    <div id="instructions">
+      <h2>Instructions</h2>
+      <p>Single words inside square brackets are will be replaced with whatever words you give them above. These are called the story "keys". Here are some example of story keys.
+        <p>[name]</p>
+        <p>[place]</p>
+        <p>When you add these to your template, click the "Update Template" button and change their values. When you click "Make Story", the keys will be replaced by the values you gave them.</p>
+        <p>Story options are words in square brackets separated by commas. Here's an example of three story options:</p>
+        <p>[a venomous toad, an evil fairy, a suspicious old crone]</p>
+        <p>If the random option is "on" then story options will be chosen randomly. If random is "off", enter a number to choose which story option should be used (1, 2, 3, etc). Using this system you can quickly create many different stories from one template. It's a lot of fun.</p>
+        <p>If you need to, you can set the gender of pronouns. This will determine whether the story uses "he", "she", "him" or "her". This probably isn't useful for most stories, but it could have some uses (like writing report card comments - see below.)</p>
+        <p>Remember: every time you change the story template, click the "Update Template" button. Define your new story keys, then click "Make Story" to see your new story.</p>
+
+        <h2>Example templates</h2>
+        <p>Here are some example story templates to help you get started. This first one is the beginning of a traditional fairytale:</p>
+        <p class="example">[hero] lived in a [place] and was a [prince of the realm, lonely wanderer, skilled magician]. One day he came across [a venomous toad, an evil fairy, a suspicious old crone] and immediately [reached for his sword, fell asleep, wondered what would happen next]. But in the next instant, [hero] felt [a drop of rain, strangely quesy, a small hand tugging at his sleeve] and realized [how bad the situation really was, that he was dreaming, that he had been followed by a dwarf].</p>
+        <p>
+          <br>The Story Maker is not just for stories! Here's an example of how you can use the Story Maker to write a form letter to your friends and family.</p>
+        <p class="example">Hi [Mom, Dad, Jessica]! I'm having a [great, Ok, terrible] time in [school, my job, Cambodia]. I just found out that I [made the Dean's honor role, have a huge report due next week, was robbed on the train and they took my passport and money]. Please [don't worry about me, give my love to everyone there, send me money fast]!</p>
+        <p>
+          <br>And Here's an example of how you can use the Story Maker to create custom report card comments. Just change the story option number depending on the student's ability level. (Set this in the "story option number" setting above.) For example, the best students would be "1", the second best "2" and so on. Then change the "gender" option to match student's gender. Customized report card comments like this are really time-consuming to write manually, but now you have a fast way to make them.</p>
+        <p class="example">[name] created [an excellent, a very good, a good] essay on [essaySubject]. Her writing skills [are well-developed and, are developing and, need practice but] she wrote [a highly imaginative, an imaginative, an interesting] children's storybook. She has [an excellent, a very good, a good] understanding of basic grammar, as exhibited by her quiz. [name] [produced work of a high standard and she has shown an impressive commitment in class, produced good quality work this term and her skills will continue to improve with practice, shows an ability in English but should remember to maintain focus when in class].</p>
+        <p>
+          <br>If your wrote an interesting story template, post it in the comments!</p>
+      <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'storymaker'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by
+    <span class="logo-disqus">Disqus</span>
+  </a>
+    </div>
+  </div>
+  <div id="right">
+    <p id="newStory">Click the "Make Story" button!</p>
+  </div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'storymaker'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+  </script>
+  <script src="storyMaker.js"></script>
+  <script src="store.js"></script>
+  <script src="main.js"></script>
+</body>
