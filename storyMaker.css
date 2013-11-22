@@ -1,0 +1,123 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 100%;
+  color: black;
+  font-family:'Libre Baskerville', serif;
+  line-height: 1.3em;
+}
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+h1 {
+  font-size: 1.6em;
+  padding-bottom: 1em;
+  float: left;
+}
+h2 {
+  font-size: 1.3em;
+  padding-bottom: 1em;
+}
+h2.template {
+  float: left;
+}
+#left {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 40%;
+  height: 90%;
+  padding: 5%;
+  overflow-y: scroll;
+  overflow-x: auto;
+  background-color: black;
+  color: white;
+}
+header {
+  display: block;
+  clear: both;
+}
+#left * {
+  color: white;
+  line-height: 1.3em;
+}
+#left p {
+  padding-bottom: 1em;
+  line-height: 1.7em;
+}
+#inputs p {
+  padding-bottom: 1em;
+}
+#inputs {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  clear: both;
+}
+#right {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  width: 40%;
+  height: 90%;
+  padding: 5%;
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+#right p {
+  font-size: 1.3em;
+  line-height: 1.5em;
+  padding-bottom: 1em;
+}
+input[type=text] {
+  display: inline;
+  background-color: black;
+  border-color: white;
+  padding: 0.5em;
+}
+#optionInput {
+  padding: 1em;
+  display: none;
+}
+input[type=number] {
+  display: inline;
+  color: black;
+  background-color: black;
+  border-color: white;
+  width: 2em;
+  padding: 0.5em;
+}
+span.label {
+  width: 20%;
+  padding: 0.5em;
+  border-color: white;
+  margin-right: 1em;
+}
+#templateDiv, #instructions {
+  padding-top: 2em;
+}
+#template {
+  background-color: black;
+  border-color: white;
+  padding: 8%;
+  width: 86%;
+  height: auto;
+  line-height: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#makeStoryButton, #updateTemplateButton {
+  display: block;
+  float: right;
+  color: black;
+  font-size: 1.6em;
+  font-family:'Libre Baskerville', serif;
+}
+#updateTemplateButton {
+  float: left;
+}
+p.example {
+  padding: 1em;
+  border: 1px white dashed;
+}
