@@ -1,6 +1,6 @@
 #Story Maker
 
-storyMaker.js is a quick way to create multiple stories from a single story template. You can use this in an interetive, game, or for lots of other fun things.
+storyMaker.js is a quick way to create multiple stories from a single story template. You can use this in an interactive toy, game, or for lots of other fun things.
 
 Start with a story template, that could look like this:
 ```
@@ -24,7 +24,11 @@ var newStory = story.make({
 Here's the result of the above code:
 
 ```
-Bilbo lived in a palace in the clouds and was a prince of the realm. One day he came across a venomous toad and immediately reached for his sword. But in the next instant, Bilbo felt a drop of rain and realized how bad the situation really was.
+Bilbo lived in a palace in the clouds and 
+was a prince of the realm. One day he came across 
+a venomous toad and immediately reached for his sword. 
+But in the next instant, Bilbo felt a drop of rain 
+and realized how bad the situation really was.
 ```
 Changing the `keys` and the `optionNumber` will give you a different story. 
 
@@ -38,5 +42,7 @@ If you set `optionNumber` to `undefined` the story maker will choose a random st
 
 `gender` is optional, but can be "male" or "female". It sets the story pronouns: "she", "her" or "he" "him". If you leave this out or set it to `undefined` gender pronouns won't be changed.
 
-Include `storyMaker.js` in any project in which you want to make stories like this. `example.js` is a simple example of how to use it. Check out `index.html` for a more complex, interactive application. Here's a working example:
+Include `storyMaker.js` in any project in which you want to make stories like this. `example.js` is a simple example of how to use it. Check out `index.html` and `main.js` for a more complex, interactive application. Here's a working example:
+
+http://kittykatattack.github.io/storymaker/
 
