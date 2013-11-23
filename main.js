@@ -62,7 +62,7 @@
         p = document.createElement("p");
         inputsDiv.appendChild(p);
         span = document.createElement("span");
-        span.innerHTML = "[ " + key + " ]";
+        span.innerHTML = key;
         span.setAttribute("class", "label");
         p.appendChild(span);
         input = document.createElement("input");
@@ -145,10 +145,10 @@
   });
   function randomRadiosHandler(event) {
     if (event.target.value === "off") {
-      optionInput.style.display = "block";
+      //optionInput.style.display = "block";
       optionSelected = optionNumberInput.value;
     } else {
-      optionInput.style.display = "none";
+      //optionInput.style.display = "none";
       optionSelected = undefined;
     }
   }
