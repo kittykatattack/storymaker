@@ -17,34 +17,38 @@
           <p>Set some options and click the "Make Story" button to see what happens.</p>
           <p id="keyIntructions">Define the keys for your story:</p>
           <div id="inputs"></div>
+          <div  id="storyOptionsDiv">
           <p>Story options:</p>
-          <input type="radio" id="randomOn" name="random" value="on" checked="checked">
-          <span> Random </span>
-          <input type="radio" id="randomOff" name="random" value="off">
-          <span> Number </span>
-          <span id="optionInput">
-              <input id="optionNumberInput" type="number" min="1" max="99" value="1">
-          </span>
+          <p><select id="storyOptionSelector"></select></p>
+          </div>
+            <p>Optionally, select a gender to format "he", "she", "him", "her" or "it":</p>
           <p>
-            <br>Optionally, select a gender to format "he", "she", "him", "her" or "it":
+            <select id="gender" name="gender">
+              <option value="none">None</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="it">It</option>
+            </select>
           </p>
           <p>
-            <input type="radio" name="gender" value="none" checked="checked"> None 
-            <input type="radio" name="gender" value="it"> It 
-            <input type="radio" name="gender" value="male"> Male 
-            <input type="radio" name="gender" value="female"> Female 
-         </p>
-          <p><br><button id="makeStoryButton" value="Make Story!">Make Story!</button></p>
-          <textarea id="template"></textarea>
-          <p><button id="updateTemplateButton" value="Update Template">Update Template</button></p>
-          <p><br><br>You can change the story template (the text above) in any way you like. If you add new story keys to the template, click the "Update Template" button. Your new keys keys will then be loaded above the template, and you can give them new values. After you've finished giving the keys new values, click the "Make Story" button again to see your new story.</p>
+            <br>
+            <button id="makeStoryButton" value="Make Story!">Make Story!</button>
+          </p>
+          <textarea id="template" data-widearea="enable"></textarea>
+          <p>
+            <button id="updateTemplateButton" value="Update Template">Update Template</button>
+          </p>
+          <p>
+            <br>
+            <br>You can change the story template (the text above) in any way you like. If you add new story keys to the template, click the "Update Template" button. Your new keys keys will then be loaded above the template, and you can give them new values. After you've finished giving the keys new values, click the "Make Story" button again to see your new story.</p>
     </div>
     <div id="instructions">
       <h2>Instructions</h2>
       <p>Single words inside square brackets will be replaced with whatever words you give them above. These are called the story "keys". Here are some examples of story keys.
-        <p class="example">[name]<br>
-        [place]<br>
-        [treasure]</p>
+        <p class="example">[name]
+          <br>[place]
+          <br>[treasure]
+        </p>
         <p>When you add these to your template, click the "Update Template" button and change their values. When you click "Make Story", the keys will be replaced by the values you gave them.</p>
         <p>Story options are words in square brackets separated by commas. Here's an example of three story options:</p>
         <p class="example">[a toad, a fairy, an old crone]</p>
@@ -101,6 +105,7 @@
       (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
   </script>
+  <script src="rafPolyfill.js"></script>
   <script src="storyMaker.js"></script>
   <script src="store.js"></script>
   <script src="main.js"></script>

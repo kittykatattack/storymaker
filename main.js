@@ -4,22 +4,23 @@
   var templateText, templateTextArea, scrollHeight, inputsDiv,
     keysInTemplate, template, makeStoryButton, newStory,
     updateTemplateButton, randomRadios, keyInputs,
-    optionInput, optionNumberInput, genders, gender, optionSelected,
-    keyIntructions,
+    optionInput, optionNumberInput, genderSelector, gender, optionSelected,
+    keyIntructions, maximumNumberOfOptions, storyOptionSelector,
+    storyOptionsDiv,
     keyObject = {};
 
   //HTML elements
   templateTextArea = document.querySelector("#template");
   inputsDiv = document.querySelector("#inputs");
+  storyOptionsDiv = document.querySelector("#storyOptionsDiv");
   makeStoryButton = document.querySelector("#makeStoryButton");
   newStory = document.querySelector("#newStory");
   updateTemplateButton = document.querySelector("#updateTemplateButton");
   randomRadios = document.querySelectorAll("[name=random]");
   randomRadios = Array.prototype.slice.call(randomRadios);
   optionInput = document.querySelector("#optionInput");
-  optionNumberInput = document.querySelector("#optionNumberInput");
-  genders = document.querySelectorAll("[name=gender]");
-  genders = Array.prototype.slice.call(genders);
+  storyOptionSelector = document.querySelector("#storyOptionSelector");
+  genderSelector = document.querySelector("#gender");
   keyIntructions = document.querySelector("#keyIntructions");
 
   //Initilize the template
@@ -42,16 +43,20 @@
     } else {
       template = templateText;
     }
-    console.log(template)
     templateTextArea.value = template;
-    //Set the scroll height to match the content
-    scrollHeight = templateTextArea.scrollHeight;
-    templateTextArea.style.height = scrollHeight + "px";
   }
-
+ 
+  //Update the textarea scroll height
+  update();
+  function update () {
+    requestAnimationFrame(update); 
+    templateTextArea.style.height = "24px";
+    templateTextArea.style.height = templateTextArea.scrollHeight + "px";
+  }
   //Find the keys in the template and display them as
   //input text field elements
   findKeysInTemplate();
+
   function findKeysInTemplate() {
     var input, span, p;
     keysInTemplate = story.findKeysInTemplate(template);
@@ -80,11 +85,34 @@
     }
   }
 
+  //Find the maximum number of story options in the template
+  findMaximumOptions();
+
+  function findMaximumOptions() {
+    maximumNumberOfOptions = story.getMaximumNumberOfOptions(template);
+    console.log(maximumNumberOfOptions);
+    if (maximumNumberOfOptions !== undefined) {
+      var el = document.createElement("option");
+      el.textContent = "Random";
+      el.value = undefined;
+      storyOptionSelector.appendChild(el);
+      for (var i = 1; i <= maximumNumberOfOptions; i++) {
+        var el = document.createElement("option");
+        el.textContent = i;
+        el.value = i;
+        storyOptionSelector.appendChild(el);
+      }
+      storyOptionsDiv.style.display = "block";
+    } else {
+      storyOptionsDiv.style.display = "none";
+    }
+  }
+
   //The "Make Story" button
   makeStoryButton.addEventListener("mousedown", makeStoryHandler, false);
+
   function makeStoryHandler() {
     if (templateTextArea.value !== "" || templateTextArea.value !== undefined) {
-      console.log(templateTextArea.value);
       //Get the keys from the key text input boxes
       if (keysInTemplate !== null) {
         keysInTemplate.forEach(function (key, index) {
@@ -92,15 +120,10 @@
         });
       }
       //Set the gender for pronouns, if it's been defined
-      genders.some(function (genderRadio) {
-        if (genderRadio.checked) {
-          gender = genderRadio.value;
-          if (gender === "none") {
-            gender = undefined;
-          }
-          return true;
-        }
-      });
+      gender = genderSelector.options[genderSelector.selectedIndex].value;
+      if (gender === "none") {
+        gender = undefined;
+      }
       //Get the text from the template textarea and assign it
       //to the template variable
       template = templateTextArea.value;
@@ -125,11 +148,17 @@
 
   //The "Update Template" button
   updateTemplateButton.addEventListener("mousedown", updateTemplateHandler, false);
+
   function updateTemplateHandler() {
     //Remove an previous story key inputs that might 
     //have been displayed
     while (inputsDiv.firstChild) {
       inputsDiv.removeChild(inputsDiv.firstChild);
+    }
+    //Remove an previous story option numbers that might 
+    //have been displayed
+    while (storyOptionSelector.firstChild) {
+      storyOptionSelector.removeChild(storyOptionSelector.firstChild);
     }
     //Assign the template textarea to the template variable
     template = templateTextArea.value;
@@ -137,12 +166,14 @@
     //templateTextArea.style.height = scrollHeight + "px";
     //Find the new keys in the updated template
     findKeysInTemplate();
+    findMaximumOptions();
   }
 
   //Random option radio buttons
   randomRadios.forEach(function (radio) {
     radio.addEventListener("change", randomRadiosHandler, false);
   });
+
   function randomRadiosHandler(event) {
     if (event.target.value === "off") {
       //optionInput.style.display = "block";
@@ -154,8 +185,9 @@
   }
 
   //Number option input
-  optionNumberInput.addEventListener("change", optionSelectedHandler, false);
+  storyOptionSelector.addEventListener("change", optionSelectedHandler, false);
+
   function optionSelectedHandler() {
-    optionSelected = optionNumberInput.value;
+    optionSelected = storyOptionSelector.value;
   }
 }());
