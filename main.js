@@ -44,15 +44,20 @@
       template = templateText;
     }
     templateTextArea.value = template;
+    resize(templateTextArea);
   }
- 
+
   //Update the textarea scroll height
-  update();
-  function update () {
-    requestAnimationFrame(update); 
-    templateTextArea.style.height = "24px";
-    templateTextArea.style.height = templateTextArea.scrollHeight + "px";
+  templateTextArea.addEventListener('keydown', resizeTextarea);
+  function resizeTextarea(event) {
+    resize(event.target);
   }
+  //Set the template height to the right size for the content
+  function resize(textarea) {
+    textarea.style.height = '24px';
+    textarea.style.height = textarea.scrollHeight + 12 + 'px';
+  }
+  
   //Find the keys in the template and display them as
   //input text field elements
   findKeysInTemplate();
