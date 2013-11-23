@@ -14,7 +14,7 @@ Use the `story.make` method to make your story from the template.
 var newStory = story.make({
     template: template,
     keys: {
-      hero: "Bilbo",
+      hero: "Gilfroblom",
       place: "palace in the clouds"
     },
     optionNumber: 1,
@@ -24,7 +24,7 @@ var newStory = story.make({
 Here's the result of the above code:
 
 ```
-Bilbo lived in a palace in the clouds and was a prince of the realm. One day he came across a venomous toad and immediately reached for his sword. But in the next instant, Bilbo felt a drop of rain and realized how bad the situation really was.
+Gilfroblom lived in a palace in the clouds and was a prince of the realm. One day he came across a venomous toad and immediately reached for his sword. But in the next instant, Bilbo felt a drop of rain and realized how bad the situation really was.
 ```
 Changing the `keys` and the `optionNumber` will give you a different story. 
 

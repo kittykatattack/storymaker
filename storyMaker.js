@@ -13,7 +13,7 @@ var story = {
     this.gender = config.gender;
     this.template = config.template;
     var story = this.template;
-
+    
     //Replace the  [name]
     //anecdote = template.replace(/\[name\]/g, name);
     //story = story.split("[name]").join(this.name);
@@ -25,7 +25,6 @@ var story = {
       //Replace the template key with the value
       story = story.split("[" + key + "]").join(value);
     }
-
     if (this.gender !== undefined) {
       //Set the correct gender
       if (this.gender.charAt(0) === "b" || this.gender.charAt(0) === "m") {
@@ -40,6 +39,17 @@ var story = {
         story = story.split(" His ").join(" Her ");
         story = story.split(" he ").join(" she ");
         story = story.split(" He ").join(" She ");
+      }
+      if (this.gender.charAt(0) === "i" || this.gender === "it") {
+        story = story.split(" his ").join(" its ");
+        story = story.split(" His ").join(" Its ");
+        story = story.split(" he ").join(" it ");
+        story = story.split(" He ").join(" It ");
+        story = story.split(" her ").join(" its ");
+        story = story.split(" Her ").join(" Its ");
+        story = story.split(" she ").join(" it ");
+        story = story.split(" She ").join(" It ");
+        story = story.split(" him ").join(" it ");
       }
     }
     //Next, set optional text based on the optionNumber number

@@ -11,18 +11,7 @@ body {
   height: 100%;
   overflow: hidden;
 }
-h1 {
-  font-size: 1.6em;
-  padding-bottom: 1em;
-  float: left;
-}
-h2 {
-  font-size: 1.3em;
-  padding-bottom: 1em;
-}
-h2.template {
-  float: left;
-}
+
 #left {
   position: absolute;
   top: 0%;
@@ -33,7 +22,6 @@ h2.template {
   overflow-y: scroll;
   overflow-x: auto;
   background-color: black;
-  color: white;
 }
 header {
   display: block;
@@ -43,12 +31,31 @@ header {
   color: white;
   line-height: 1.3em;
 }
+#left h1 {
+  font-size: 3.5em;
+  padding-bottom: 1em;
+  float: left;
+  font-family: 'Trocchi', serif;
+  color: #69D2E7;
+}
+#left h2 {
+  font-size: 2.5em;
+  padding-bottom: 1em;
+  font-family: 'Trocchi', serif;
+  color: #69D2E7;
+}
+h2.template {
+  float: left;
+}
 #left p {
   padding-bottom: 1em;
   line-height: 1.7em;
+  font-size: 1.2em;
+  
 }
 #inputs p {
   padding-bottom: 1em;
+  font-size: 1.3em;
 }
 #inputs {
   padding-top: 1em;
@@ -64,60 +71,76 @@ header {
   padding: 5%;
   overflow-y: scroll;
   overflow-x: auto;
+  background-image: url(images/paper.png);
 }
 #right p {
-  font-size: 1.3em;
+  font-size: 1.5em;
   line-height: 1.5em;
   padding-bottom: 1em;
+  clear: both;
+  display: block;
 }
 input[type=text] {
   display: inline;
   background-color: black;
-  border-color: white;
+  border: 1px #69D2E7 dashed;
   padding: 0.5em;
+  font-size: 1.4em;
+  width: 10em;
 }
 #optionInput {
   padding: 1em;
-  display: none;
+  display: inline;
 }
 input[type=number] {
   display: inline;
   color: black;
   background-color: black;
-  border-color: white;
+  border: 1px #69D2E7 dashed;
   width: 2em;
   padding: 0.5em;
+  font-size: 1.4em;
 }
 span.label {
   width: 20%;
   padding: 0.5em;
   border-color: white;
   margin-right: 1em;
+  font-size: 1.4em;
+}
+span {
+  font-size: 1.3em;
 }
 #templateDiv, #instructions {
   padding-top: 2em;
 }
 #template {
   background-color: black;
-  border-color: white;
+  border: 1px #69D2E7 dashed;
   padding: 8%;
   width: 86%;
   height: auto;
   line-height: 2em;
   margin-top: 1em;
   margin-bottom: 1em;
+  font-size: 1.2em;
 }
-#makeStoryButton, #updateTemplateButton {
+#left button {
   display: block;
-  float: right;
-  color: black;
-  font-size: 1.6em;
-  font-family:'Libre Baskerville', serif;
+  border: 1px #69D2E7 solid;
+  background-color: black;
+  font-family: 'Trocchi', serif;
+  color: #69D2E7;
+  -webkit-appearance: button;
+  font-size: 1.2em;
+  padding: 0.5em;
 }
+
 #updateTemplateButton {
   float: left;
 }
 p.example {
   padding: 1em;
   border: 1px white dashed;
+  margin: 1em;
 }
