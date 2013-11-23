@@ -88,18 +88,14 @@ input[type=text] {
   font-size: 1.4em;
   width: 10em;
 }
-#optionInput {
-  padding: 1em;
-  display: inline;
-}
-input[type=number] {
-  display: inline;
-  color: black;
+
+select {
+ display: inline;
+  color: white;
   background-color: black;
-  border: 1px #69D2E7 dashed;
-  width: 2em;
+  border: 1px #69D2E7 none;
   padding: 0.5em;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 span.label {
   width: 20%;
@@ -115,15 +111,16 @@ span {
   padding-top: 2em;
 }
 #template {
+  
   background-color: black;
   border: 1px #69D2E7 dashed;
-  padding: 8%;
+  padding: 1em;;
   width: 86%;
-  height: auto;
   line-height: 2em;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  
 }
 #left button {
   display: block;

@@ -148,7 +148,29 @@ var story = {
   //greatest number of elements.
   getRandomOption: function (stringArray) {
     "use strict";
-    var randomNumber = Math.floor(Math.random() * stringArray.length) + 1
+    var randomNumber = Math.floor(Math.random() * stringArray.length) + 1;
     return randomNumber;
+  },
+  //Find out what the maximum number of options are in the
+  //story options
+  getMaximumNumberOfOptions: function (template) {
+    "use strict";
+    var arraysInTemplate, stringArrays, biggestNumber = 0;
+    arraysInTemplate = this.getArraysInTemplate(template);
+    if (arraysInTemplate !== null) {
+      stringArrays = this.makeArraysOfStrings(arraysInTemplate);
+      stringArrays.forEach(function (stringArray) { 
+        if (stringArray.length > biggestNumber) {
+          biggestNumber = stringArray.length;
+        }
+      });
+      if (biggestNumber > 1) {
+        return biggestNumber;
+      } else {
+        return undefined;
+      }
+    } else {
+      return undefined;
+    }
   }
 };
